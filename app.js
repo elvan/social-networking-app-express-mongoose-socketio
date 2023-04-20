@@ -1,5 +1,6 @@
 const express = require('express');
 
+const loginRoute = require('./routes/loginRoutes');
 const middleware = require('./middleware');
 
 const app = express();
@@ -8,6 +9,8 @@ const port = 3000;
 
 app.set('view engine', 'pug');
 app.set('views', 'views');
+
+app.use('/login', loginRoute);
 
 app.get('/', middleware.requireLogin, (req, res, next) => {
     var payload = {
