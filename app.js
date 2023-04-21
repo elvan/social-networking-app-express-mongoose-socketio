@@ -1,8 +1,10 @@
 const express = require('express');
 const path = require('path');
 
-const loginRoute = require('./routes/loginRoutes');
 const middleware = require('./middleware');
+
+const loginRoute = require('./routes/loginRoutes');
+const registerRoute = require('./routes/registerRoutes');
 
 const app = express();
 
@@ -14,6 +16,7 @@ app.set('views', 'views');
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/login', loginRoute);
+app.use('/register', registerRoute);
 
 app.get('/', middleware.requireLogin, (req, res, next) => {
     var payload = {
