@@ -9,6 +9,7 @@ const session = require('express-session');
 const middleware = require('./middleware');
 
 const loginRoute = require('./routes/loginRoutes');
+const logoutRoute = require('./routes/logoutRoutes');
 const registerRoute = require('./routes/registerRoutes');
 
 const MONGODB_URL = process.env.MONGODB_URL || 'mongodb://localhost:27017/social-networking-app';
@@ -37,6 +38,7 @@ app.use(
     })
 );
 
+app.use('/logout', logoutRoute);
 app.use('/login', loginRoute);
 app.use('/register', registerRoute);
 
