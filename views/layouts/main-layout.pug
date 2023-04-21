@@ -5,6 +5,7 @@ html(lang="en")
         meta(name="viewport" content="width=device-width, initial-scale=1.0")
         title #{pageTitle}
         link(rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.6.2/dist/cerulean/bootstrap.min.css" integrity="sha256-2Ts8cqKoyt8WikTYcEP72SXZ2lHwYrZ1/G92a3A7ykc=" crossorigin="anonymous")
+        link(rel="stylesheet" href="/css/main.css")
 
     body
         .wrapper
@@ -12,10 +13,10 @@ html(lang="en")
                 nav.col-2
                     span Navbar
 
-                .mainSectionContainer.col-8
+                .mainSectionContainer.col-10.col-md-8.col-lg-6
                     block content
 
-                .col-2
+                .d-none.d-md-block.col-md-2.col-lg-4
                     span third column
 
         script(src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous")
