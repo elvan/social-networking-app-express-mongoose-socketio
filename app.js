@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
+const session = require('express-session');
 
 const middleware = require('./middleware');
 
@@ -11,6 +12,7 @@ const loginRoute = require('./routes/loginRoutes');
 const registerRoute = require('./routes/registerRoutes');
 
 const MONGODB_URL = process.env.MONGODB_URL || 'mongodb://localhost:27017/social-networking-app';
+const SECRET = process.env.SECRET || 'secret';
 
 mongoose.set('useNewUrlParser', true);
 mongoose.set('useUnifiedTopology', true);
@@ -26,6 +28,14 @@ app.set('views', 'views');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(
+    session({
+        secret: SECRET,
+        resave: true,
+        saveUninitialized: false,
+    })
+);
 
 app.use('/login', loginRoute);
 app.use('/register', registerRoute);
