@@ -1,5 +1,6 @@
 :root {
     --blue: #1fa2f1;
+    --blueLight: #9bd1f9;
     --buttonHoverBg: #d4edff;
     --lightGrey: rgb(230, 236, 240);
     --spacing: 15px;
@@ -85,4 +86,28 @@ nav a:hover {
     width: 100%;
     border-radius: 50%;
     background-color: white;
+}
+
+.textareaContainer {
+    flex: 1;
+    padding-left: var(--spacing);
+}
+
+.textareaContainer textarea {
+    width: 100%;
+    padding: 8px;
+    font-size: 19px;
+    resize: none;
+}
+
+#submitPostButton {
+    padding: 7px 15px;
+    border: none;
+    border-radius: 40px;
+    color: white;
+    background-color: var(--blue);
+}
+
+#submitPostButton:disabled {
+    background-color: var(--blueLight);
 }
