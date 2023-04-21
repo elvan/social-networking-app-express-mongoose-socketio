@@ -1,3 +1,4 @@
+const bcrypt = require('bcrypt');
 const express = require('express');
 
 const User = require('../schemas/UserSchema');
@@ -30,6 +31,8 @@ router.post('/', async (req, res, next) => {
             // No user found
 
             var data = req.body;
+
+            data.password = await bcrypt.hash(password, 10);
 
             User.create(data).then((user) => {
                 console.log(user);
