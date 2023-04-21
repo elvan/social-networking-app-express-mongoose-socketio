@@ -6,6 +6,10 @@
     --spacing: 15px;
 }
 
+* {
+    outline: none !important;
+}
+
 a {
     color: inherit;
 }
