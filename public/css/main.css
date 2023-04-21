@@ -1,6 +1,8 @@
 :root {
     --blue: #1fa2f1;
     --buttonHoverBg: #d4edff;
+    --lightGrey: rgb(230, 236, 240);
+    --spacing: 15px;
 }
 
 a {
@@ -12,6 +14,12 @@ a:hover {
     text-decoration: none;
 }
 
+h1 {
+    margin: 0;
+    font-weight: 800;
+    font-size: 19px;
+}
+
 nav {
     display: flex;
     flex-direction: column;
@@ -20,13 +28,13 @@ nav {
 }
 
 nav a {
-    padding: 10px;
-    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 55px;
     height: 55px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    padding: 10px;
+    font-size: 30px;
 }
 
 nav a.blue {
@@ -34,11 +42,28 @@ nav a.blue {
 }
 
 nav a:hover {
-    background-color: var(--buttonHoverBg);
-    color: var(--blue);
     border-radius: 50%;
+    color: var(--blue);
+    background-color: var(--buttonHoverBg);
 }
 
 .mainSectionContainer {
-    background-color: #ddddff;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    border-right: 1px solid var(--lightGrey);
+    border-left: 1px solid var(--lightGrey);
+}
+
+.titleContainer {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    height: 53px;
+    padding: 0 var(--spacing);
+    border-bottom: 1px solid var(--lightGrey);
+}
+
+.titleContainer h1 {
+    flex: 1;
 }
