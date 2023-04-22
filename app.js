@@ -1,10 +1,12 @@
 require('dotenv').config();
 
+const MongoStore = require('connect-mongo');
 const bodyParser = require('body-parser');
 const express = require('express');
-const path = require('path');
 const mongoose = require('mongoose');
+const path = require('path');
 const session = require('express-session');
+const { MongoClient } = require('mongodb');
 
 const middleware = require('./middleware');
 
@@ -35,8 +37,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(
     session({
         secret: SECRET,
-        resave: true,
+        store: MongoStore.create({ client: new MongoClient(MONGODB_URL) }),
+        resave: false,
         saveUninitialized: false,
+        cookie: { maxAge: 1000 * 60 * 60 * 24, httpOnly: true },
     })
 );
 
