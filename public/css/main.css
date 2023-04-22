@@ -2,6 +2,7 @@
     --blue: #1fa2f1;
     --blueLight: #9bd1f9;
     --buttonHoverBg: #d4edff;
+    --greyButtonText: rgba(0, 0, 0, 0.34);
     --greyText: rgb(101, 119, 134);
     --lightGrey: rgb(230, 236, 240);
     --spacing: 15px;
@@ -52,6 +53,12 @@ nav a:hover {
     border-radius: 50%;
     color: var(--blue);
     background-color: var(--buttonHoverBg);
+}
+
+button {
+    border: none;
+    color: var(--greyButtonText);
+    background-color: transparent;
 }
 
 .mainSectionContainer {
@@ -141,4 +148,37 @@ nav a:hover {
 .username,
 .date {
     color: var(--greyText);
+}
+
+.displayName {
+    font-weight: bold;
+}
+
+.postFooter {
+    display: flex;
+    align-items: center;
+}
+
+.postFooter .postButtonContainer {
+    display: flex;
+    flex: 1;
+}
+
+.postFooter .postButtonContainer button {
+    padding: 2px 5px;
+}
+
+.header a:hover {
+    text-decoration: underline;
+}
+
+.header a,
+.header span {
+    padding-right: 5px;
+}
+
+.postButtonContainer button:hover {
+    border-radius: 50%;
+    color: var(--blue);
+    background-color: #d4edff;
 }
