@@ -61,6 +61,11 @@ button {
     background-color: transparent;
 }
 
+button i,
+button span {
+    pointer-events: none;
+}
+
 .mainSectionContainer {
     display: flex;
     flex-direction: column;
