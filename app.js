@@ -12,6 +12,8 @@ const loginRoute = require('./routes/loginRoutes');
 const logoutRoute = require('./routes/logoutRoutes');
 const registerRoute = require('./routes/registerRoutes');
 
+const postsApiRoute = require('./routes/api/posts');
+
 const MONGODB_URL = process.env.MONGODB_URL || 'mongodb://localhost:27017/social-networking-app';
 const SECRET = process.env.SECRET || 'secret';
 
@@ -41,6 +43,8 @@ app.use(
 app.use('/logout', logoutRoute);
 app.use('/login', loginRoute);
 app.use('/register', registerRoute);
+
+app.use('/api/posts', postsApiRoute);
 
 app.get('/', middleware.requireLogin, (req, res, next) => {
     var payload = {

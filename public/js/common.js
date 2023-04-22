@@ -22,5 +22,7 @@ $('#submitPostButton').click(() => {
         content: textbox.val(),
     };
 
-    $.post('/api/posts', data, (postData, status, xhr) => {});
+    $.post('/api/posts', data, (postData, status, xhr) => {
+        alert(postData);
+    });
 });
