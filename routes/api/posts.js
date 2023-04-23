@@ -10,6 +10,15 @@ router.get('/', async (req, res, next) => {
     res.status(200).send(results);
 });
 
+router.get('/:id', async (req, res, next) => {
+    var postId = req.params.id;
+
+    var results = await getPosts({ _id: postId });
+    results = results[0];
+
+    res.status(200).send(results);
+});
+
 router.post('/', async (req, res, next) => {
     if (!req.body.content) {
         console.log('Content param not sent with request');
