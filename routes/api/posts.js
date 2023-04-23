@@ -119,8 +119,8 @@ router.post('/:id/retweet', async (req, res, next) => {
     res.status(200).send(post);
 });
 
-async function getPosts() {
-    var results = await Post.find()
+async function getPosts(filter) {
+    var results = await Post.find(filter)
         .populate('postedBy')
         .populate('retweetData')
         .sort({ createdAt: -1 })
