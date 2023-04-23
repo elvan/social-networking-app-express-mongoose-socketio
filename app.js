@@ -47,8 +47,7 @@ app.use(
 
 app.use('/login', loginRoute);
 app.use('/logout', logoutRoute);
-app.use('/posts', postRoute);
-app.use('/register', registerRoute);
+app.use('/posts', middleware.requireLogin, postRoute);
 
 app.use('/api/posts', postsApiRoute);
 
