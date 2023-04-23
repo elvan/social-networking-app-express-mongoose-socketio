@@ -5,6 +5,7 @@
     --greyButtonText: rgba(0, 0, 0, 0.34);
     --greyText: rgb(101, 119, 134);
     --lightGrey: rgb(230, 236, 240);
+    --red: rgb(226, 34, 94);
     --spacing: 15px;
 }
 
@@ -186,4 +187,8 @@ button span {
     border-radius: 50%;
     color: var(--blue);
     background-color: #d4edff;
+}
+
+.postButtonContainer.red button.active {
+    color: var(--red);
 }
