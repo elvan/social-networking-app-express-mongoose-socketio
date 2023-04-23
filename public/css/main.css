@@ -276,3 +276,17 @@ button span {
     padding: var(--spacing);
     text-align: right;
 }
+
+.profileButton {
+    display: inline-block;
+    margin-left: var(--spacing);
+    padding: 5px 15px;
+    border: 1px solid var(--blue);
+    border-radius: 60px;
+    color: var(--blue);
+    font-weight: bold;
+}
+
+.profileButton:hover {
+    background-color: var(--blueBackground);
+}
