@@ -56,6 +56,18 @@ $('#replyModal').on('show.bs.modal', (event) => {
 
 $('#replyModal').on('hidden.bs.modal', () => $('#originalPostContainer').html(''));
 
+$('#deletePostModal').on('show.bs.modal', (event) => {
+    var button = $(event.relatedTarget);
+    var postId = getPostIdFromElement(button);
+    $('#deletePostButton').data('id', postId);
+
+    console.log($('#deletePostButton').data().id);
+
+    // $.get("/api/posts/" + postId, results => {
+    //     outputPosts(results.postData, $("#originalPostContainer"));
+    // })
+});
+
 $(document).on('click', '.likeButton', (event) => {
     var button = $(event.target);
     var postId = getPostIdFromElement(button);
