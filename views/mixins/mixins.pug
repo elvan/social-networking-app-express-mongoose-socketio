@@ -20,7 +20,7 @@ mixin createReplyModal(userLoggedIn)
                         .userImageContainer
                             img(src=userLoggedIn.profilePic, alt="User's profile picture")
                         .textareaContainer
-                            textarea#postTextarea(placeholder="What's happening?")
+                            textarea#replyTextarea(placeholder="What's happening?")
                 .modal-footer
                     button.btn.btn-secondary(type='button' data-dismiss='modal') Close
                     button#submitReplyButton.btn.btn-primary(type='button' disabled="") Reply
