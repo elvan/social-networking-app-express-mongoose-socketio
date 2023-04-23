@@ -8,6 +8,7 @@ const router = express.Router();
 router.get('/', (req, res, next) => {
     Post.find()
         .populate('postedBy')
+        .populate('retweetData')
         .sort({ createdAt: -1 })
         .then((results) => res.status(200).send(results))
         .catch((error) => {
