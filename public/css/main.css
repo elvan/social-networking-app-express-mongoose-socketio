@@ -257,7 +257,7 @@ button span {
     padding: var(--spacing);
 }
 
-.coverPhotoContainer {
+.coverPhotoSection {
     position: relative;
     height: 180px;
     background-color: var(--blue);
@@ -374,15 +374,24 @@ button span {
     padding: 0 var(--spacing);
 }
 
-.profilePictureButton {
+.profilePictureButton,
+.coverPhotoButton {
     position: absolute;
     font-size: 50px;
     color: rgba(0, 0, 0, 0.6);
     display: none;
 }
 
-.userImageContainer:hover .profilePictureButton {
+.userImageContainer:hover .profilePictureButton,
+.coverPhotoSection:hover .coverPhotoButton {
     display: block;
+}
+
+.coverPhotoContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
 }
 
 #imagePreview {
