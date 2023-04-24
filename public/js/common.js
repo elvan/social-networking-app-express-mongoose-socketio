@@ -133,7 +133,21 @@ $(document).on('click', '.post', (event) => {
 $(document).on('click', '.followButton', (e) => {
     var button = $(e.target);
     var userId = button.data().user;
-    console.log(userId);
+
+    $.ajax({
+        url: `/api/users/${userId}/follow`,
+        type: 'PUT',
+        success: (data) => {
+            console.log(data);
+            button.find('span').text(postData.retweetUsers.length || '');
+
+            if (postData.retweetUsers.includes(userLoggedIn._id)) {
+                button.addClass('active');
+            } else {
+                button.removeClass('active');
+            }
+        },
+    });
 });
 
 function getPostIdFromElement(element) {
