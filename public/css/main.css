@@ -277,7 +277,8 @@ button span {
     text-align: right;
 }
 
-.profileButton {
+.profileButton,
+.followButton {
     display: inline-block;
     margin-left: var(--spacing);
     padding: 5px 15px;
@@ -287,6 +288,7 @@ button span {
     font-weight: bold;
 }
 
-.profileButton:hover {
+.profileButton:hover,
+.followButton:hover {
     background-color: var(--blueBackground);
 }
