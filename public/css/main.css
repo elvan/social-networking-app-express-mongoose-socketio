@@ -264,8 +264,11 @@ button span {
 }
 
 .profileHeaderContainer .userImageContainer {
+    display: flex;
     position: absolute;
     bottom: -66px;
+    justify-content: center;
+    align-items: center;
     width: 132px;
     height: 132px;
     margin-left: var(--spacing);
@@ -369,4 +372,15 @@ button span {
 .user .userDetailsContainer {
     flex: 1;
     padding: 0 var(--spacing);
+}
+
+.profilePictureButton {
+    position: absolute;
+    font-size: 50px;
+    color: rgba(0, 0, 0, 0.6);
+    display: none;
+}
+
+.userImageContainer:hover .profilePictureButton {
+    display: block;
 }
