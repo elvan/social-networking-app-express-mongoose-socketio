@@ -350,3 +350,23 @@ button span {
     color: var(--blue);
     background-color: var(--blueBackground);
 }
+
+.noResults {
+    padding: var(--spacing);
+}
+
+.resultsContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.resultsContainer .user {
+    display: flex;
+    padding: var(--spacing);
+    border-bottom: 1px solid var(--lightGrey);
+}
+
+.user .userDetailsContainer {
+    flex: 1;
+    padding: 0 var(--spacing);
+}
