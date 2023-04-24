@@ -1,8 +1,17 @@
 const express = require('express');
+const fs = require('fs');
+const multer = require('multer');
+const path = require('path');
 
 const User = require('../../schemas/UserSchema');
 
 const router = express.Router();
+
+const upload = multer({
+    storage: multer.diskStorage({
+        destination: 'uploads/images',
+    }),
+});
 
 router.put('/:userId/follow', async (req, res, next) => {
     var userId = req.params.userId;
@@ -55,6 +64,26 @@ router.get('/:userId/followers', async (req, res, next) => {
             console.log(error);
             res.sendStatus(400);
         });
+});
+
+router.post('/profilePicture', upload.single('croppedImage'), async (req, res, next) => {
+    if (!req.file) {
+        console.log('No file uploaded with ajax request.');
+        return res.sendStatus(400);
+    }
+
+    var filePath = `/uploads/images/${req.file.filename}.png`;
+    var tempPath = req.file.path;
+    var targetPath = path.join(__dirname, `../../${filePath}`);
+
+    fs.rename(tempPath, targetPath, (error) => {
+        if (error != null) {
+            console.log(error);
+            return res.sendStatus(400);
+        }
+
+        res.sendStatus(200);
+    });
 });
 
 module.exports = router;
