@@ -26,6 +26,10 @@ block content
                         span.value #{0}
                         span Followers
 
+        .tabsContainer
+            +createTab("Posts", `/profile/${profileUser.username}`, true)
+            +createTab("Replies", `/profile/${profileUser.username}/replies`, false)
+
         .postsContainer
 
         +createPostModals(userLoggedIn)
