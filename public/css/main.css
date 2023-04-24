@@ -60,6 +60,10 @@ nav a:hover {
     background-color: var(--buttonHoverBg);
 }
 
+.wrapper > .row {
+    margin: 0;
+}
+
 button {
     border: none;
     color: var(--greyButtonText);
