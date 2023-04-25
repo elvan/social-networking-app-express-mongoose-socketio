@@ -1,5 +1,6 @@
 // Globals
 var cropper;
+var timer;
 
 $('#postTextarea, #replyTextarea').keyup((event) => {
     var textbox = $(event.target);
@@ -193,6 +194,27 @@ $('#imageUploadButton').click(() => {
             success: () => location.reload(),
         });
     });
+});
+
+$('#userSearchTextbox').keydown((event) => {
+    clearTimeout(timer);
+    var textbox = $(event.target);
+    var value = textbox.val();
+
+    if (value == '' && event.keycode == 8) {
+        // remove user from selection
+        return;
+    }
+
+    timer = setTimeout(() => {
+        value = textbox.val().trim();
+
+        if (value == '') {
+            $('.resultsContainer').html('');
+        } else {
+            searchUsers(value);
+        }
+    }, 1000);
 });
 
 $('#coverPhotoButton').click(() => {
@@ -525,4 +547,8 @@ function createUserHtml(userData, showFollowButton) {
             ${followButton}
         </div>
     `;
+}
+
+function searchUsers(searchTerm) {
+    console.log('hi');
 }
