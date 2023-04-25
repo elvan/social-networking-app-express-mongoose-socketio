@@ -408,3 +408,7 @@ button span {
     /* This rule is very important, please don't ignore this */
     max-width: 100%;
 }
+
+.pinButton.active {
+    color: var(--blue);
+}
