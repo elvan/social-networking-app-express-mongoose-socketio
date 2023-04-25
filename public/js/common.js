@@ -550,5 +550,24 @@ function createUserHtml(userData, showFollowButton) {
 }
 
 function searchUsers(searchTerm) {
-    console.log('hi');
+    $.get('/api/users', { search: searchTerm }, (results) => {
+        outputSelectableUsers(results, $('.resultsContainer'));
+    });
+}
+
+function outputSelectableUsers(results, container) {
+    container.html('');
+
+    results.forEach((result) => {
+        if (result._id == userLoggedIn._id) {
+            return;
+        }
+
+        var html = createUserHtml(result, true);
+        container.append(html);
+    });
+
+    if (results.length == 0) {
+        container.append("<span class='noResults'>No results found</span>");
+    }
 }
