@@ -1,6 +1,7 @@
 // Globals
 var cropper;
 var timer;
+var selectedUsers = [];
 
 $('#postTextarea, #replyTextarea').keyup((event) => {
     var textbox = $(event.target);
@@ -564,10 +565,20 @@ function outputSelectableUsers(results, container) {
         }
 
         var html = createUserHtml(result, true);
-        container.append(html);
+        var element = $(html);
+        element.click(() => userSelected(result));
+
+        container.append(element);
     });
 
     if (results.length == 0) {
         container.append("<span class='noResults'>No results found</span>");
     }
+}
+
+function userSelected(user) {
+    selectedUsers.push(user);
+    $('#userSearchTextbox').val('').focus();
+    $('.resultsContainer').html('');
+    $('#createChatButton').prop('disabled', false);
 }
