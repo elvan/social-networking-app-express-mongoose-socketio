@@ -197,27 +197,6 @@ $('#imageUploadButton').click(() => {
     });
 });
 
-$('#userSearchTextbox').keydown((event) => {
-    clearTimeout(timer);
-    var textbox = $(event.target);
-    var value = textbox.val();
-
-    if (value == '' && event.keycode == 8) {
-        // remove user from selection
-        return;
-    }
-
-    timer = setTimeout(() => {
-        value = textbox.val().trim();
-
-        if (value == '') {
-            $('.resultsContainer').html('');
-        } else {
-            searchUsers(value);
-        }
-    }, 1000);
-});
-
 $('#coverPhotoButton').click(() => {
     var canvas = cropper.getCroppedCanvas();
 
@@ -239,6 +218,35 @@ $('#coverPhotoButton').click(() => {
             success: () => location.reload(),
         });
     });
+});
+
+$('#userSearchTextbox').keydown((event) => {
+    clearTimeout(timer);
+    var textbox = $(event.target);
+    var value = textbox.val();
+
+    if (value == '' && event.keyCode == 8) {
+        // remove user from selection
+        selectedUsers.pop();
+        updateSelectedUsersHtml();
+        $('.resultsContainer').html('');
+
+        if (selectedUsers.length == 0) {
+            $('#createChatButton').prop('disabled', true);
+        }
+
+        return;
+    }
+
+    timer = setTimeout(() => {
+        value = textbox.val().trim();
+
+        if (value == '') {
+            $('.resultsContainer').html('');
+        } else {
+            searchUsers(value);
+        }
+    }, 1000);
 });
 
 $(document).on('click', '.likeButton', (event) => {
