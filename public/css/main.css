@@ -417,3 +417,7 @@ button span {
     color: var(--greyText);
     font-size: 12px;
 }
+
+.pinnedPostContainer {
+    border-bottom: 10px solid rgb(230, 236, 240);
+}
