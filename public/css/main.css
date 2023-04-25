@@ -443,3 +443,42 @@ button span {
     color: var(--greyText);
     background-color: var(--lightGrey);
 }
+
+.chatPageContainer {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+}
+
+.chatTitleBar {
+    display: flex;
+    align-items: center;
+    min-height: 60px;
+    padding: 10px;
+    border-bottom: 1px solid var(--lightGrey);
+}
+
+.chatTitleBar label {
+    margin-right: 10px;
+}
+
+#userSearchTextbox {
+    flex: 1;
+    min-width: 350px;
+    border: none;
+    font-weight: 200;
+}
+
+#createChatButton {
+    margin: 10px auto;
+    padding: 7px 20px;
+    border: none;
+    border-radius: 40px;
+    color: #fff;
+    background-color: var(--blue);
+}
+
+#createChatButton:disabled {
+    color: var(--greyText);
+    background-color: var(--lightGrey);
+}
