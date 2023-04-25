@@ -13,6 +13,27 @@ const upload = multer({
     }),
 });
 
+router.get('/', async (req, res, next) => {
+    var searchObj = req.query;
+
+    if (req.query.search !== undefined) {
+        searchObj = {
+            $or: [
+                { firstName: { $regex: req.query.search, $options: 'i' } },
+                { lastName: { $regex: req.query.search, $options: 'i' } },
+                { username: { $regex: req.query.search, $options: 'i' } },
+            ],
+        };
+    }
+
+    User.find(searchObj)
+        .then((results) => res.status(200).send(results))
+        .catch((error) => {
+            console.log(error);
+            res.sendStatus(400);
+        });
+});
+
 router.put('/:userId/follow', async (req, res, next) => {
     var userId = req.params.userId;
 
