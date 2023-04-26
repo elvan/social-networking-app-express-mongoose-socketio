@@ -175,6 +175,7 @@ button span {
 .mainContentContainer {
     display: flex;
     flex: 1;
+    overflow-y: hidden;
 }
 
 .postContentContainer {
@@ -462,6 +463,7 @@ button span {
 .chatPageContainer {
     display: flex;
     flex: 1;
+    flex-basis: 0;
     flex-direction: column;
     min-height: 0;
 }
@@ -733,4 +735,24 @@ button span {
 
 .chatMessages .message.theirs.last:not(.first) .messageBody {
     border-top-left-radius: 2px;
+}
+
+.senderName {
+    color: rgba(0, 0, 0, 0.4);
+}
+
+.chatMessages .imageContainer {
+    width: 24px;
+    height: 24px;
+    margin-right: 7px;
+}
+
+.chatMessages img {
+    height: 100%;
+    border-radius: 50%;
+    vertical-align: bottom;
+}
+
+.chatMessages .message.last {
+    margin-bottom: 7px;
 }
