@@ -40,5 +40,7 @@ function messageSubmitted() {
 }
 
 function sendMessage(content) {
-    console.log(content);
+    $.post('/api/messages', { content: content, chatId: chatId }, (data, status, xhr) => {
+        console.log(data);
+    });
 }
