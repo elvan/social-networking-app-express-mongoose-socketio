@@ -18,4 +18,12 @@ router.get('/new', (req, res, next) => {
     });
 });
 
+router.get('/:chatId', (req, res, next) => {
+    res.status(200).render('chatPage', {
+        pageTitle: 'Chat',
+        userLoggedIn: req.session.user,
+        userLoggedInJs: JSON.stringify(req.session.user),
+    });
+});
+
 module.exports = router;
