@@ -225,7 +225,7 @@ $('#userSearchTextbox').keydown((event) => {
     var textbox = $(event.target);
     var value = textbox.val();
 
-    if (value == '' && event.keyCode == 8) {
+    if (value == '' && (event.which == 8 || event.keyCode == 8)) {
         // remove user from selection
         selectedUsers.pop();
         updateSelectedUsersHtml();
