@@ -13,6 +13,14 @@
     --spacing: 15px;
 }
 
+html,
+body {
+    height: 100%;
+    min-height: 100%;
+    font-weight: 300;
+    background-color: #fff;
+}
+
 * {
     outline: none !important;
 }
@@ -60,7 +68,14 @@ nav a:hover {
     background-color: var(--buttonHoverBg);
 }
 
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
 .wrapper > .row {
+    height: 100%;
     margin: 0;
 }
 
