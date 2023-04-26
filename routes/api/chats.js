@@ -32,6 +32,16 @@ router.post('/', async (req, res, next) => {
         });
 });
 
+router.get('/:chatId', async (req, res, next) => {
+    Chat.findOne({ _id: req.params.chatId, users: { $elemMatch: { $eq: req.session.user._id } } })
+        .populate('users')
+        .then((results) => res.status(200).send(results))
+        .catch((error) => {
+            console.log(error);
+            res.sendStatus(400);
+        });
+});
+
 router.get('/', async (req, res, next) => {
     Chat.find({ users: { $elemMatch: { $eq: req.session.user._id } } })
         .populate('users')
