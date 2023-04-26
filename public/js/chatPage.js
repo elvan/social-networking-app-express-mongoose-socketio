@@ -2,7 +2,18 @@ $(document).ready(() => {
     $.get(`/api/chats/${chatId}`, (data) => $('#chatName').text(getChatName(data)));
 
     $.get(`/api/chats/${chatId}/messages`, (data) => {
-        console.log(data);
+        var messages = [];
+        var lastSenderId = '';
+
+        data.forEach((message, index) => {
+            var html = createMessageHtml(message, data[index + 1], lastSenderId);
+            messages.push(html);
+
+            lastSenderId = message.sender._id;
+        });
+
+        var messagesHtml = messages.join('');
+        addMessagesHtmlToPage(messagesHtml);
     });
 });
 
@@ -34,6 +45,12 @@ $('.inputTextbox').keydown((event) => {
     }
 });
 
+function addMessagesHtmlToPage(html) {
+    $('.chatMessages').append(html);
+
+    // TODO: SCROLL TO BOTTOM
+}
+
 function messageSubmitted() {
     var content = $('.inputTextbox').val().trim();
 
@@ -61,14 +78,31 @@ function addChatMessageHtml(message) {
         return;
     }
 
-    var messageDiv = createMessageHtml(message);
+    var messageDiv = createMessageHtml(message, null, '');
 
-    $('.chatMessages').append(messageDiv);
+    addMessagesHtmlToPage(messageDiv);
 }
 
-function createMessageHtml(message) {
+function createMessageHtml(message, nextMessage, lastSenderId) {
+    var sender = message.sender;
+    var senderName = sender.firstName + ' ' + sender.lastName;
+
+    var currentSenderId = sender._id;
+    var nextSenderId = nextMessage != null ? nextMessage.sender._id : '';
+
+    var isFirst = lastSenderId != currentSenderId;
+    var isLast = nextSenderId != currentSenderId;
+
     var isMine = message.sender._id == userLoggedIn._id;
     var liClassName = isMine ? 'mine' : 'theirs';
+
+    if (isFirst) {
+        liClassName += ' first';
+    }
+
+    if (isLast) {
+        liClassName += ' last';
+    }
 
     return `
         <li class='message ${liClassName}'>
