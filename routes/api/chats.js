@@ -1,6 +1,7 @@
 const express = require('express');
 
 const Chat = require('../../schemas/ChatSchema');
+const Message = require('../../schemas/MessageSchema');
 const User = require('../../schemas/UserSchema');
 
 const router = express.Router();
@@ -61,6 +62,16 @@ router.get('/', async (req, res, next) => {
 router.put('/:chatId', async (req, res, next) => {
     Chat.findByIdAndUpdate(req.params.chatId, req.body)
         .then((results) => res.sendStatus(204))
+        .catch((error) => {
+            console.log(error);
+            res.sendStatus(400);
+        });
+});
+
+router.get('/:chatId/messages', async (req, res, next) => {
+    Message.find({ chat: req.params.chatId })
+        .populate('sender')
+        .then((results) => res.status(200).send(results))
         .catch((error) => {
             console.log(error);
             res.sendStatus(400);

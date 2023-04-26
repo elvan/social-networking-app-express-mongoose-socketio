@@ -1,5 +1,9 @@
 $(document).ready(() => {
     $.get(`/api/chats/${chatId}`, (data) => $('#chatName').text(getChatName(data)));
+
+    $.get(`/api/chats/${chatId}/messages`, (data) => {
+        console.log(data);
+    });
 });
 
 $('#chatNameButton').click(() => {
