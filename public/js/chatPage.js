@@ -41,6 +41,12 @@ function messageSubmitted() {
 
 function sendMessage(content) {
     $.post('/api/messages', { content: content, chatId: chatId }, (data, status, xhr) => {
+        if (xhr.status != 201) {
+            alert('Could not send message');
+            $('.inputTextbox').val(content);
+            return;
+        }
+
         addChatMessageHtml(data);
     });
 }
