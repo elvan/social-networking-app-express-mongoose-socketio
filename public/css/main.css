@@ -492,3 +492,30 @@ button span {
     font-weight: 300;
     background-color: #cbe5fe;
 }
+
+.resultListItem {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    padding: 7px;
+    border-bottom: 1px solid var(--lightGrey);
+}
+
+.resultListItem:hover {
+    background-color: #f2f2f2;
+}
+
+.resultsDetailsContainer {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+}
+
+.resultsDetailsContainer .heading {
+    font-weight: 500;
+}
+
+.resultsDetailsContainer .subText {
+    color: var(--greyText);
+    font-size: 14px;
+}
