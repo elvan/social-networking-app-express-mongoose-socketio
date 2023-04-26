@@ -683,3 +683,12 @@ button span {
     flex-direction: column;
     max-width: 55%;
 }
+
+.chatMessages .message.mine {
+    flex-direction: row-reverse;
+}
+
+.chatMessages .message.mine .messageBody {
+    color: #fff;
+    background-color: var(--blue);
+}
