@@ -1,5 +1,6 @@
 const express = require('express');
 
+const Chat = require('../../schemas/ChatSchema');
 const Message = require('../../schemas/MessageSchema');
 
 const router = express.Router();
@@ -20,6 +21,11 @@ router.post('/', async (req, res, next) => {
         .then(async (message) => {
             message = await message.populate('sender').execPopulate();
             message = await message.populate('chat').execPopulate();
+
+            Chat.findByIdAndUpdate(req.body.chatId, { latestMessage: message }).catch((error) =>
+                console.log(error)
+            );
+
             res.status(201).send(message);
         })
         .catch((error) => {
