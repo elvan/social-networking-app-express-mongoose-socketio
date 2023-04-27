@@ -68,6 +68,8 @@
 ![Chat Notifications](https://raw.githubusercontent.com/elvan/social-networking-app-express-mongoose-socketio/main/_screenshots/Screenshot%202023-04-27%20133528.png)
 *Chat Notifications*
 
+---
+
 ![Group Chat](https://raw.githubusercontent.com/elvan/social-networking-app-express-mongoose-socketio/main/_screenshots/Screenshot%202023-04-27%20133541.png)
 *Group Chat*
 
