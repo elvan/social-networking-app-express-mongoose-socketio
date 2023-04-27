@@ -655,7 +655,7 @@ function getOtherChatUsers(users) {
 }
 
 function messageReceived(newMessage) {
-    if ($('.chatContainer').length == 0) {
+    if ($(`[data-room="${newMessage.chat._id}"]`).length == 0) {
         // Show popup notification
         showMessagePopup(newMessage);
     } else {
