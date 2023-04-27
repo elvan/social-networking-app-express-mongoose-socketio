@@ -17,7 +17,7 @@ html,
 body {
     height: 100%;
     min-height: 100%;
-    font-weight: 400;
+    font-weight: 300;
     background-color: #fff;
 }
 
@@ -151,7 +151,7 @@ button span {
 
 .textareaContainer textarea {
     width: 100%;
-    padding: 8px;
+    border: none;
     font-size: 19px;
     resize: none;
 }
@@ -248,7 +248,7 @@ button span {
 
 .postActionContainer {
     margin-bottom: 5px;
-    padding-left: 65px;
+    padding-left: 35px;
     color: var(--greyText);
     font-size: 13px;
 }
