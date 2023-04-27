@@ -75,8 +75,18 @@
 
 ---
 
+![Chat Users Listing](https://raw.githubusercontent.com/elvan/social-networking-app-express-mongoose-socketio/main/_screenshots/Screenshot%202023-04-27%20133625.png)
+*Chat Users Listing*
+
+---
+
 ![Creating New Chat Room](https://raw.githubusercontent.com/elvan/social-networking-app-express-mongoose-socketio/main/_screenshots/Screenshot%202023-04-27%20133638.png)
 *Creating New Chat Room*
+
+---
+
+![Post Notifications](https://raw.githubusercontent.com/elvan/social-networking-app-express-mongoose-socketio/main/_screenshots/Screenshot%202023-04-27%20133653.png)
+*Post Notifications*
 
 ---
 
