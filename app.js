@@ -7,6 +7,7 @@ const mongoose = require('mongoose');
 const path = require('path');
 const session = require('express-session');
 const { MongoClient } = require('mongodb');
+const socketIo = require('socket.io');
 
 const middleware = require('./middleware');
 
@@ -81,9 +82,14 @@ mongoose
     .connect(MONGODB_URL)
     .then(() => {
         console.log('Database connection successful');
-
-        app.listen(port, () => console.log('Server listening on port ' + port));
     })
     .catch((err) => {
         console.log('database connection error ' + err);
     });
+
+const server = app.listen(port, () => console.log('Server listening on port ' + port));
+const io = socketIo(server, { pingTimeout: 60000 });
+
+io.on('connection', (socket) => {
+    console.log('connected to socket io');
+});
