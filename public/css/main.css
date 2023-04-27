@@ -676,11 +676,22 @@ button span {
     list-style: none;
 }
 
+.typingDots img,
 .chatMessages .message .messageBody {
     padding: 6px 12px;
     border-radius: 18px;
     font-size: 14px;
     background-color: #f1f0f0;
+}
+
+.typingDots img {
+    height: 35px;
+}
+
+.typingDots {
+    display: none;
+    padding: var(--spacing);
+    padding-bottom: 0;
 }
 
 .chatMessages .message .messageContainer {
