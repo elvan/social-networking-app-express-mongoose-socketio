@@ -21,6 +21,10 @@ body {
     background-color: #fff;
 }
 
+ul {
+    margin: 0;
+}
+
 * {
     outline: none !important;
 }
@@ -670,7 +674,6 @@ button span {
     align-items: flex-end;
     padding-bottom: 2px;
     list-style: none;
-    -webkit-flex: 0;
 }
 
 .chatMessages .message .messageBody {
