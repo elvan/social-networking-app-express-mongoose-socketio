@@ -14,6 +14,7 @@ const middleware = require('./middleware');
 const loginRoute = require('./routes/loginRoutes');
 const logoutRoute = require('./routes/logoutRoutes');
 const messagesRoute = require('./routes/messagesRoutes');
+const notificationsRoute = require('./routes/notificationRoutes');
 const postRoute = require('./routes/postRoutes');
 const profileRoute = require('./routes/profileRoutes');
 const registerRoute = require('./routes/registerRoutes');
@@ -57,6 +58,7 @@ app.use('/login', loginRoute);
 app.use('/logout', logoutRoute);
 app.use('/register', registerRoute);
 
+app.use('/notifications', middleware.requireLogin, notificationsRoute);
 app.use('/messages', middleware.requireLogin, messagesRoute);
 app.use('/posts', middleware.requireLogin, postRoute);
 app.use('/profile', middleware.requireLogin, profileRoute);
