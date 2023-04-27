@@ -95,4 +95,6 @@ io.on('connection', (socket) => {
         socket.join(userData._id);
         socket.emit('connected');
     });
+
+    socket.on('join room', (room) => socket.join(room));
 });
