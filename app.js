@@ -91,5 +91,8 @@ const server = app.listen(port, () => console.log('Server listening on port ' + 
 const io = socketIo(server, { pingTimeout: 60000 });
 
 io.on('connection', (socket) => {
-    console.log('connected to socket io');
+    socket.on('setup', (userData) => {
+        socket.join(userData._id);
+        socket.emit('connected');
+    });
 });
